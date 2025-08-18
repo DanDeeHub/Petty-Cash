@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Expenses - Vine Consulting Limited</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: { extend: { fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] } } }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-neutral-800 font-inter antialiased">
+  <div class="flex min-h-screen items-center justify-center p-6">
+    <!-- Phone card -->
+    <div class="relative h-[680px] w-[375px] rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
+      <!-- Header -->
+      <div class="bg-blue-800 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
+        <button onclick="window.location.href='Sales.html'" class="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <h1 class="text-lg font-semibold">Vine Consulting Limited</h1>
+        <button onclick="toggleMenu()" class="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+             <!-- Progress Steps -->
+       <div class="px-6 py-6 flex-shrink-0">
+         <div class="flex items-center justify-between relative">
+           <!-- Progress lines (positioned between circles) -->
+           <div class="absolute top-4 left-4 right-4 flex justify-between">
+             <div class="w-12 h-0.5 bg-gray-300"></div>
+             <div class="w-12 h-0.5 bg-gray-300"></div>
+             <div class="w-12 h-0.5 bg-gray-300"></div>
+             <div class="w-12 h-0.5 bg-gray-300"></div>
+             <div class="w-12 h-0.5 bg-gray-300"></div>
+           </div>
+
+           <!-- Step 1: Opening -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">1</div>
+             <span class="text-xs mt-3 text-gray-500">Opening</span>
+           </div>
+
+           <!-- Step 2: Sales -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">2</div>
+             <span class="text-xs mt-3 text-gray-500">Sales</span>
+           </div>
+
+           <!-- Step 3: Expenses (Active) -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="relative">
+               <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium leading-none">3</div>
+               <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
+                 <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                   <path d="M10 0l10 20H0L10 0z"/>
+                 </svg>
+               </div>
+             </div>
+             <span class="text-xs mt-3 text-blue-600 font-medium">Expenses</span>
+           </div>
+
+           <!-- Step 4: Deposit -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">4</div>
+             <span class="text-xs mt-3 text-gray-500">Deposit</span>
+           </div>
+
+           <!-- Step 5: Cash Count -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">5</div>
+             <span class="text-xs mt-3 text-gray-500">Cash Count</span>
+           </div>
+
+           <!-- Step 6: Ending -->
+           <div class="flex flex-col items-center relative z-10">
+             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">6</div>
+             <span class="text-xs mt-3 text-gray-500">Ending</span>
+           </div>
+         </div>
+       </div>
+
+                                 <!-- Today's Expenses Content -->
+        <div id="expensesList" class="px-6 pb-6 flex-1 overflow-y-auto">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-xl font-bold text-gray-900">Today's Expenses</h2>
+          <button onclick="showAddForm()" class="text-blue-600 text-sm font-medium flex items-center gap-1 hover:text-blue-700">
+            Add New
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+        </div>
+
+                 <!-- Expense Entries -->
+         <div id="expenseEntries" class="space-y-3">
+           <!-- Sample expense entries will be populated here -->
+         </div>
+
+                  <!-- Add New Expense Button -->
+          <button id="addExpenseButton" onclick="showAddForm()" class="w-full mb-6 border-2 border-blue-600 text-blue-600 py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            <span>Add New Expense</span>
+          </button>
+               </div>
+
+        <!-- Total Expense Summary and Action Buttons (Fixed at bottom) -->
+        <div id="bottomSection" class="px-6 py-4 border-t border-gray-200 flex-shrink-0">
+          <!-- Total Expense Summary -->
+          <div class="flex justify-between items-center py-3 mb-4">
+            <span class="text-sm font-medium text-gray-700">Total Expense:</span>
+            <span class="text-sm font-medium text-gray-700" id="totalExpenseList">$0.00</span>
+          </div>
+
+          <button onclick="window.location.href='Deposit.html'" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+            <span>Save & Next</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <div class="flex justify-center mt-2">
+            <button onclick="saveAndExit()" class="text-blue-600 py-2 px-4 text-sm font-medium hover:text-blue-700 transition-colors">
+              Save & Exit
+            </button>
+          </div>
+        </div>
+
+                                    <!-- Add New Expense Form Content -->
+        <div id="addExpenseForm" class="px-6 pb-6 flex-1 overflow-y-auto hidden">
+         <!-- Title -->
+         <h2 class="text-xl font-bold text-gray-900 mb-6">Add New Expense</h2>
+
+        <!-- Date Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Date</label>
+          <div class="relative">
+            <input type="date" class="w-full pl-3 pr-10 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amount Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Amount <span class="text-red-500">*</span></label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <span class="text-gray-500 text-sm">$</span>
+            </div>
+            <input type="number" step="0.01" min="0" value="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" oninput="formatCurrency(this)">
+          </div>
+        </div>
+
+        <!-- Contact Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Contact <span class="text-red-500">*</span></label>
+          <div class="relative">
+            <select class="w-full pl-3 pr-10 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none">
+              <option value="">Enter a Contact</option>
+              <option value="no-contact">No Xero contact found</option>
+              <option value="new-contact">+ Add a new contact</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Contact Section (hidden by default) -->
+        <div id="newContactSection" class="mb-4 hidden">
+          <label class="block text-sm font-medium text-gray-700 mb-2">New Contact:</label>
+          <input type="text" placeholder="Enter a New Contact" class="w-full pl-3 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <div class="flex gap-2 mt-2">
+            <button onclick="cancelNewContact()" class="flex-1 py-2 px-4 border border-blue-600 text-blue-600 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors">Cancel</button>
+            <button onclick="createContact()" class="flex-1 py-2 px-4 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 transition-colors">Create</button>
+          </div>
+        </div>
+
+        <!-- Account Code Field -->
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Account Code <span class="text-red-500">*</span></label>
+          <div class="relative">
+            <select class="w-full pl-3 pr-10 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none">
+              <option value="">Select a category</option>
+              <option value="office-supplies">Office Supplies</option>
+              <option value="utilities">Utilities</option>
+              <option value="rent">Rent</option>
+              <option value="marketing">Marketing</option>
+              <option value="travel">Travel</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Field -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+          <input type="text" placeholder="Enter expense description" class="w-full pl-3 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        </div>
+
+        <!-- Receipt/Document Upload Section -->
+        <div class="mb-6">
+          <label class="block text-sm font-medium text-gray-700 mb-2">Receipt/Document</label>
+          <div class="border-2 border-dashed border-gray-300 rounded-md p-6 text-center bg-gray-50 hover:bg-gray-100 transition-colors cursor-pointer" onclick="document.getElementById('fileInput').click()">
+            <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+            <p class="text-sm font-medium text-gray-700">Click to upload</p>
+            <p class="text-xs text-gray-500 mt-1">PDF, JPEG, PNG (Max 5MB)</p>
+            <input type="file" id="fileInput" class="hidden" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFileUpload(this)">
+          </div>
+        </div>
+
+                 
+
+                   <!-- Action Buttons -->
+          <button onclick="addExpense()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+            <span>Add</span>
+          </button>
+
+          <div class="flex justify-center mt-2">
+            <button onclick="cancelAddExpense()" class="text-blue-600 py-2 px-4 text-sm font-medium hover:text-blue-700 transition-colors">
+              Cancel
+            </button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+     <script>
+     // Sample expenses data
+     let expenses = [
+       {
+         category: 'Office Supplies',
+         date: '2025-04-10',
+         description: 'Printer paper and ink cartridges',
+         amount: 42.99
+       }
+     ];
+
+           // Function to show add expense form
+      function showAddForm() {
+        document.getElementById('expensesList').classList.add('hidden');
+        document.getElementById('bottomSection').classList.add('hidden');
+        document.getElementById('addExpenseForm').classList.remove('hidden');
+        
+        // Scroll to top and focus on the first field
+        setTimeout(() => {
+          const formContainer = document.getElementById('addExpenseForm');
+          formContainer.scrollTop = 0;
+          
+          // Focus on the date field
+          const dateInput = formContainer.querySelector('input[type="date"]');
+          if (dateInput) {
+            dateInput.focus();
+          }
+        }, 100);
+      }
+
+           // Function to show expenses list
+      function showExpensesList() {
+        document.getElementById('addExpenseForm').classList.add('hidden');
+        document.getElementById('expensesList').classList.remove('hidden');
+        document.getElementById('bottomSection').classList.remove('hidden');
+        renderExpenses();
+      }
+
+           // Function to render expenses
+      function renderExpenses() {
+        const expenseEntries = document.getElementById('expenseEntries');
+        if (expenses.length === 0) {
+          expenseEntries.innerHTML = '<p class="text-gray-500 text-center py-8">No expenses added yet</p>';
+          updateTotalExpense();
+          return;
+        }
+
+        expenseEntries.innerHTML = expenses.map((expense, index) => `
+          <div class="border-b border-gray-200 pb-3">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <h3 class="font-semibold text-gray-900">${expense.category}</h3>
+                <p class="text-sm text-gray-500">${expense.date}</p>
+                <p class="text-sm text-gray-500">${expense.description}</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-red-600 font-medium">-$${expense.amount.toFixed(2)}</span>
+                <button onclick="viewExpense(${index})" class="text-gray-400 hover:text-gray-600">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                </button>
+                <button onclick="deleteExpense(${index})" class="text-gray-400 hover:text-red-600">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        
+        updateTotalExpense();
+      }
+
+             // Function to update total expense
+       function updateTotalExpense() {
+         const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+         const totalExpenseList = document.getElementById('totalExpenseList');
+         
+         if (totalExpenseList) {
+           totalExpenseList.textContent = `$${total.toFixed(2)}`;
+         }
+       }
+
+           // Function to handle Add Expense action
+      function addExpense() {
+        // Get form values
+        const date = document.querySelector('input[type="date"]').value;
+        const amount = parseFloat(document.querySelector('input[type="number"]').value) || 0;
+        const contact = document.querySelector('select').value;
+        const accountCode = document.querySelectorAll('select')[1].value;
+        const description = document.querySelector('input[placeholder="Enter expense description"]').value;
+
+        if (!date || amount === 0 || !contact || !accountCode) {
+          alert('Please fill in all required fields');
+          return;
+        }
+
+        // Add new expense
+        const newExpense = {
+          category: accountCode,
+          date: date,
+          description: description || 'No description',
+          amount: amount
+        };
+
+        expenses.push(newExpense);
+
+        // Clear form
+        document.querySelector('input[type="date"]').value = '';
+        document.querySelector('input[type="number"]').value = '0.00';
+        document.querySelector('select').value = '';
+        document.querySelectorAll('select')[1].value = '';
+        document.querySelector('input[placeholder="Enter expense description"]').value = '';
+
+        // Show expenses list
+        showExpensesList();
+      }
+
+      // Function to cancel adding expense
+      function cancelAddExpense() {
+        // Clear form
+        document.querySelector('input[type="date"]').value = '';
+        document.querySelector('input[type="number"]').value = '0.00';
+        document.querySelector('select').value = '';
+        document.querySelectorAll('select')[1].value = '';
+        document.querySelector('input[placeholder="Enter expense description"]').value = '';
+        
+        // Show expenses list
+        showExpensesList();
+      }
+
+    // Function to handle Save & Exit action
+    function saveAndExit() {
+      alert('Save & Exit functionality would be implemented here');
+      // In a real implementation, this would save the data and exit the flow
+    }
+
+    // Function to handle menu toggle
+    function toggleMenu() {
+      alert('Menu toggle functionality would be implemented here');
+      // In a real implementation, this would show/hide a menu
+    }
+
+    // Format currency input
+    function formatCurrency(input) {
+      let value = input.value.replace(/[^\d.]/g, '');
+      const parts = value.split('.');
+      if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+      }
+      if (parts.length === 2 && parts[1].length > 2) {
+        value = parts[0] + '.' + parts[1].substring(0, 2);
+      }
+      input.value = value;
+    }
+
+    // Handle file upload
+    function handleFileUpload(input) {
+      const file = input.files[0];
+      if (file) {
+        // Check file size (5MB limit)
+        if (file.size > 5 * 1024 * 1024) {
+          alert('File size must be less than 5MB');
+          input.value = '';
+          return;
+        }
+        
+        // Check file type
+        const allowedTypes = ['application/pdf', 'image/jpeg', 'image/jpg', 'image/png'];
+        if (!allowedTypes.includes(file.type)) {
+          alert('Please upload PDF, JPEG, or PNG files only');
+          input.value = '';
+          return;
+        }
+        
+        console.log('File uploaded:', file.name);
+      }
+    }
+
+    // Handle contact selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactSelect = document.querySelector('select');
+      contactSelect.addEventListener('change', function() {
+        const newContactSection = document.getElementById('newContactSection');
+        if (this.value === 'new-contact') {
+          newContactSection.classList.remove('hidden');
+        } else {
+          newContactSection.classList.add('hidden');
+        }
+      });
+    });
+
+    // Cancel new contact
+    function cancelNewContact() {
+      document.getElementById('newContactSection').classList.add('hidden');
+      document.querySelector('select').value = '';
+    }
+
+         // Create new contact
+     function createContact() {
+       const newContactInput = document.querySelector('#newContactSection input');
+       if (newContactInput.value.trim()) {
+         alert('Contact created: ' + newContactInput.value);
+         cancelNewContact();
+       } else {
+         alert('Please enter a contact name');
+       }
+     }
+
+     // View expense details
+     function viewExpense(index) {
+       const expense = expenses[index];
+       alert(`Expense Details:\nCategory: ${expense.category}\nDate: ${expense.date}\nDescription: ${expense.description}\nAmount: $${expense.amount.toFixed(2)}`);
+     }
+
+     // Delete expense
+     function deleteExpense(index) {
+       if (confirm('Are you sure you want to delete this expense?')) {
+         expenses.splice(index, 1);
+         renderExpenses();
+       }
+     }
+
+     // Initialize expenses list on page load
+     document.addEventListener('DOMContentLoaded', function() {
+       renderExpenses();
+     });
+   </script>
+</body>
+</html>
