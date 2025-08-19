@@ -10,19 +10,51 @@
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base styles */
+    .main-container {
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    /* Responsive container styles */
+    @media (min-width: 640px) and (max-width: 1024px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+  </style>
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] } } }
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            inter: ['Inter','ui-sans-serif','system-ui'] 
+          } 
+        } 
+      }
     }
   </script>
 </head>
 <body class="min-h-screen bg-neutral-800 font-inter antialiased">
-  <div class="flex min-h-screen items-center justify-center p-6">
+  <div class="main-container">
     <!-- Phone card -->
-    <div class="relative h-[680px] w-[375px] rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
+    <div class="relative w-full h-screen rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
       <!-- Header -->
       <div class="bg-blue-800 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
-        <button onclick="window.location.href='Deposit.html'" class="text-white">
+        <button class="text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
@@ -36,64 +68,64 @@
       </div>
 
       <!-- Progress Steps -->
-      <div class="px-6 py-6 flex-shrink-0">
-        <div class="flex items-center justify-between relative">
+      <div class="px-4 sm:px-6 py-4 sm:py-6 flex-shrink-0">
+        <div class="flex items-center justify-between relative max-w-2xl mx-auto">
           <!-- Progress lines (positioned between circles) -->
-          <div class="absolute top-4 left-4 right-4 flex justify-between">
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
+          <div class="absolute top-3 sm:top-4 left-0 right-0 flex justify-between px-8 sm:px-10">
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
           </div>
 
           <!-- Step 1: Opening -->
-          <div class="flex flex-col items-center relative z-10">
-            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">1</div>
-            <span class="text-xs mt-3 text-gray-500">Opening</span>
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">1</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Opening</span>
           </div>
 
           <!-- Step 2: Sales -->
-          <div class="flex flex-col items-center relative z-10">
-            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">2</div>
-            <span class="text-xs mt-3 text-gray-500">Sales</span>
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">2</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Sales</span>
           </div>
 
           <!-- Step 3: Expenses -->
-          <div class="flex flex-col items-center relative z-10">
-            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">3</div>
-            <span class="text-xs mt-3 text-gray-500">Expenses</span>
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">3</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Expenses</span>
           </div>
 
           <!-- Step 4: Deposit -->
-          <div class="flex flex-col items-center relative z-10">
-            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">4</div>
-            <span class="text-xs mt-3 text-gray-500">Deposit</span>
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">4</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Deposit</span>
           </div>
 
           <!-- Step 5: Cash Count (Active) -->
-          <div class="flex flex-col items-center relative z-10">
+          <div class="flex flex-col items-center relative z-10 flex-1">
             <div class="relative">
-              <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium leading-none">5</div>
+              <div class="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-medium leading-none">5</div>
               <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
-                <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-2 h-2 sm:w-3 sm:h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 0l10 20H0L10 0z"/>
                 </svg>
               </div>
             </div>
-            <span class="text-xs mt-3 text-blue-600 font-medium">Cash Count</span>
+            <span class="text-xs mt-2 sm:mt-3 text-blue-600 font-medium text-center whitespace-nowrap">Cash Count</span>
           </div>
 
           <!-- Step 6: Ending -->
-          <div class="flex flex-col items-center relative z-10">
-            <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">6</div>
-            <span class="text-xs mt-3 text-gray-500">Ending</span>
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">6</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Ending</span>
           </div>
         </div>
       </div>
 
       <!-- Form Content -->
-      <div class="px-6 pb-6 flex-1 overflow-y-auto">
+      <div class="p-6 flex-1 overflow-y-auto">
         <!-- Title -->
         <h2 class="text-xl font-bold text-gray-900 mb-6">Cash Count Entry</h2>
 
@@ -109,7 +141,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="note100" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="note100" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -120,7 +152,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="note50" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="note50" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -131,7 +163,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="note20" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="note20" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -142,13 +174,13 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="note10" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="note10" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
           </div>
 
           <!-- Total Notes -->
-          <div class="flex justify-between items-center py-2 border-t border-gray-200">
+          <div class="flex justify-between items-center py-2">
             <span class="text-sm font-medium text-gray-700">Total Notes:</span>
             <span class="text-sm font-medium text-gray-700" id="totalNotes">$0.00</span>
           </div>
@@ -166,7 +198,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin5" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin5" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -177,7 +209,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin2" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin2" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -188,7 +220,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin1" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin1" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -199,7 +231,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin050" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin050" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -210,7 +242,7 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin020" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin020" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
 
@@ -221,55 +253,41 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <span class="text-gray-500 text-sm">$</span>
                 </div>
-                                 <input type="number" id="coin010" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+                                 <input type="number" id="coin010" placeholder="0" min="0" step="1" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
               </div>
             </div>
           </div>
 
           <!-- Total Coins -->
-          <div class="flex justify-between items-center py-2 border-t border-gray-200">
+          <div class="flex justify-between items-center py-2">
             <span class="text-sm font-medium text-gray-700">Total Coins:</span>
             <span class="text-sm font-medium text-gray-700" id="totalCoins">$0.00</span>
           </div>
         </div>
 
-                          <!-- Deposit Amount (from previous step) -->
-         <div class="mb-6">
-           <div class="flex justify-between items-center py-2 border-t border-gray-200">
-             <span class="text-sm font-medium text-gray-700">Deposit:</span>
-             <span id="depositAmount" class="text-sm font-medium text-gray-700">$0.00</span>
-           </div>
-         </div>
 
-         <!-- Total Cash Till Balance -->
-         <div class="mb-6">
-           <div class="flex justify-between items-center py-2 border-t border-gray-200">
-             <span class="text-sm font-medium text-gray-700">Total Cash Till Balance:</span>
-             <span id="totalCashTill" class="text-lg font-bold text-gray-900">$0.00</span>
-           </div>
-         </div>
 
          <!-- Safe Box Balance Section -->
          <div class="mb-6">
-           <h3 class="text-lg font-semibold text-gray-500 mb-4">Safe Box Balance *</h3>
+           <h3 class="text-lg font-semibold text-gray-900 mb-4">Safe Box Balance <span class="text-red-500">*</span></h3>
            <div class="relative">
              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                <span class="text-gray-500 text-sm">$</span>
              </div>
-             <input type="number" id="safeBoxBalance" placeholder="Enter Safe Bank Amount" min="0" step="0.01" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
+             <input type="number" id="safeBoxBalance" placeholder="Enter Safe Bank Amount" min="0" step="0.01" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()">
            </div>
          </div>
 
                  <!-- Discrepancy Details Section -->
          <div class="mb-6">
-           <h3 class="text-lg font-semibold text-gray-500 mb-4">Discrepancy Details</h3>
+           <h3 class="text-lg font-semibold text-gray-900 mb-4">Discrepancy Details</h3>
            
            <!-- Alert Message -->
-           <div id="discrepancyAlert" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+           <div id="discrepancyAlert" class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4" style="display: none;">
              <div class="flex items-start">
                <div class="flex-shrink-0">
-                 <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" style="color: #EF4444;">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
                  </svg>
                </div>
                <div class="ml-3">
@@ -281,13 +299,13 @@
 
            <!-- Description Input -->
            <div>
-             <textarea id="discrepancyDescription" class="w-full px-3 py-3 border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" rows="3" placeholder="Description"></textarea>
+             <textarea id="discrepancyDescription" class="w-full px-3 py-3 border border-gray-300 rounded-2xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" rows="3" placeholder="Description"></textarea>
            </div>
          </div>
       </div>
 
              <!-- Footer -->
-       <div class="bg-white border-t border-gray-200 px-6 py-4 flex-shrink-0">
+       <div class="bg-white px-6 py-4 flex-shrink-0">
          <div class="flex items-center justify-between mb-3">
            <span class="text-sm font-medium text-gray-700">Cash Count:</span>
            <span id="totalCashCount" class="text-sm font-medium text-gray-700">$0.00</span>
@@ -344,33 +362,55 @@
          }
        });
 
-       // Update individual totals
-       document.getElementById('totalNotes').textContent = `$${totalNotes.toFixed(2)}`;
-       document.getElementById('totalCoins').textContent = `$${totalCoins.toFixed(2)}`;
+       // Update individual totals with comma formatting
+       if (totalNotes === 0) {
+         document.getElementById('totalNotes').textContent = '-';
+       } else {
+         const formattedTotalNotes = totalNotes.toLocaleString('en-US', {
+           minimumFractionDigits: 2,
+           maximumFractionDigits: 2
+         });
+         document.getElementById('totalNotes').textContent = `$${formattedTotalNotes}`;
+       }
 
-       // Get deposit amount (this would come from the previous step)
-       const depositAmount = parseFloat(document.getElementById('depositAmount').textContent.replace('$', '')) || 0;
-       
-       // Set Total Cash Till Balance and Cash Count to the deposit amount
-       document.getElementById('totalCashTill').textContent = `$${depositAmount.toFixed(2)}`;
-       document.getElementById('totalCashCount').textContent = `$${depositAmount.toFixed(2)}`;
+       if (totalCoins === 0) {
+         document.getElementById('totalCoins').textContent = '-';
+       } else {
+         const formattedTotalCoins = totalCoins.toLocaleString('en-US', {
+           minimumFractionDigits: 2,
+           maximumFractionDigits: 2
+         });
+         document.getElementById('totalCoins').textContent = `$${formattedTotalCoins}`;
+       }
 
-       // Calculate discrepancy between counted cash and deposit amount
+       // Calculate total counted cash
        const countedTotal = totalNotes + totalCoins;
-       const discrepancy = countedTotal - depositAmount;
+       
+       // Update Cash Count display with comma formatting
+       if (countedTotal === 0) {
+         document.getElementById('totalCashCount').textContent = '-';
+       } else {
+         const formattedCountedTotal = countedTotal.toLocaleString('en-US', {
+           minimumFractionDigits: 2,
+           maximumFractionDigits: 2
+         });
+         document.getElementById('totalCashCount').textContent = `$${formattedCountedTotal}`;
+       }
+
+       // Calculate discrepancy between counted cash and safe box balance
+       const safeBoxBalance = parseFloat(document.getElementById('safeBoxBalance').value) || 0;
+       const discrepancy = countedTotal - safeBoxBalance;
        
        if (discrepancy !== 0) {
-         document.getElementById('shortageAmount').textContent = `$${Math.abs(discrepancy).toFixed(2)}`;
+         const formattedShortage = Math.abs(discrepancy).toLocaleString('en-US', {
+           minimumFractionDigits: 2,
+           maximumFractionDigits: 2
+         });
+         document.getElementById('shortageAmount').textContent = `$${formattedShortage}`;
          document.getElementById('discrepancyAlert').style.display = 'block';
        } else {
          document.getElementById('discrepancyAlert').style.display = 'none';
        }
-     }
-
-         // Function to set deposit amount (would be called from previous step)
-     function setDepositAmount(amount) {
-       document.getElementById('depositAmount').textContent = `$${parseFloat(amount).toFixed(2)}`;
-       calculateTotals();
      }
 
      // Add event listeners to all inputs
@@ -380,8 +420,8 @@
          input.addEventListener('input', calculateTotals);
        });
        
-       // Set a sample deposit amount (in real app, this would come from previous step)
-       setDepositAmount(1500.00);
+       // Initialize calculations
+       calculateTotals();
      });
 
     function toggleMenu() {
