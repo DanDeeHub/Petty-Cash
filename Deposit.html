@@ -10,16 +10,62 @@
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base styles */
+    .main-container {
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    /* Responsive container styles */
+    @media (min-width: 640px) and (max-width: 1024px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    /* Ensure dropdown options match select field width */
+    select {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    select option {
+      width: 100%;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    
+
+  </style>
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] } } }
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            inter: ['Inter','ui-sans-serif','system-ui'] 
+          } 
+        } 
+      }
     }
   </script>
 </head>
 <body class="min-h-screen bg-neutral-800 font-inter antialiased">
-  <div class="flex min-h-screen items-center justify-center p-6">
+  <div class="main-container">
     <!-- Phone card -->
-    <div class="relative h-[680px] w-[375px] rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
+    <div class="relative w-full h-screen rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
       <!-- Header -->
       <div class="bg-blue-800 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
         <button onclick="window.location.href='Expenses.html'" class="text-white">
@@ -36,64 +82,64 @@
       </div>
 
       <!-- Progress Steps -->
-      <div class="px-6 py-6 flex-shrink-0">
-        <div class="flex items-center justify-between relative">
+      <div class="px-4 sm:px-6 py-4 sm:py-6 flex-shrink-0">
+        <div class="flex items-center justify-between relative max-w-2xl mx-auto">
           <!-- Progress lines (positioned between circles) -->
-          <div class="absolute top-4 left-4 right-4 flex justify-between">
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
-            <div class="w-12 h-0.5 bg-gray-300"></div>
+          <div class="absolute top-3 sm:top-4 left-0 right-0 flex justify-between px-8 sm:px-10">
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
           </div>
 
-                     <!-- Step 1: Opening -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">1</div>
-             <span class="text-xs mt-3 text-gray-500">Opening</span>
-           </div>
+          <!-- Step 1: Opening -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">1</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Opening</span>
+          </div>
 
-           <!-- Step 2: Sales -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">2</div>
-             <span class="text-xs mt-3 text-gray-500">Sales</span>
-           </div>
+          <!-- Step 2: Sales -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">2</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Sales</span>
+          </div>
 
-           <!-- Step 3: Expenses -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">3</div>
-             <span class="text-xs mt-3 text-gray-500">Expenses</span>
-           </div>
+          <!-- Step 3: Expenses -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">3</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Expenses</span>
+          </div>
 
-           <!-- Step 4: Deposit (Active) -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="relative">
-               <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium leading-none">4</div>
-               <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
-                 <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                   <path d="M10 0l10 20H0L10 0z"/>
-                 </svg>
-               </div>
-             </div>
-             <span class="text-xs mt-3 text-blue-600 font-medium">Deposit</span>
-           </div>
+          <!-- Step 4: Deposit (Active) -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="relative">
+              <div class="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-medium leading-none">4</div>
+              <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
+                <svg class="w-2 h-2 sm:w-3 sm:h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 0l10 20H0L10 0z"/>
+                </svg>
+              </div>
+            </div>
+            <span class="text-xs mt-2 sm:mt-3 text-blue-600 font-medium text-center">Deposit</span>
+          </div>
 
-           <!-- Step 5: Cash Count -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">5</div>
-             <span class="text-xs mt-3 text-gray-500">Cash Count</span>
-           </div>
+          <!-- Step 5: Cash Count -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">5</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center whitespace-nowrap">Cash Count</span>
+          </div>
 
-           <!-- Step 6: Ending -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">6</div>
-             <span class="text-xs mt-3 text-gray-500">Ending</span>
-           </div>
+          <!-- Step 6: Ending -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">6</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Ending</span>
+          </div>
         </div>
       </div>
 
-      <!-- Main Content Area -->
-      <div class="px-6 pb-6 flex-1 overflow-y-auto">
+      <!-- Form Content -->
+      <div class="p-6 flex-1 overflow-y-auto">
         <!-- Title -->
         <h2 class="text-xl font-bold text-gray-900 mb-6">Deposit to Bank</h2>
 
@@ -104,13 +150,13 @@
              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                <span class="text-gray-500 text-sm">$</span>
              </div>
-             <input type="number" step="0.01" min="0" value="0.00" placeholder="Enter additions to petty cash" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer" oninput="formatCurrency(this)" onchange="updateDepositAmount()" onclick="showDepositModal()" readonly>
+             <input type="text" placeholder="Enter additions to petty cash" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer" oninput="formatCurrency(this)" onchange="updateDepositAmount()" onclick="showDepositModal()" readonly>
            </div>
          </div>
       </div>
 
-             <!-- Bottom Section -->
-       <div class="px-6 py-4 border-t border-gray-200 flex-shrink-0">
+      <!-- Sticky Bottom Section -->
+      <div class="p-6 flex-shrink-0 sticky bottom-0 bg-white">
          <!-- Deposit Summary -->
          <div class="flex justify-between items-center py-3 mb-4">
            <span class="text-sm font-medium text-gray-700">Deposit:</span>
@@ -131,6 +177,7 @@
           </button>
         </div>
       </div>
+      </div>
     </div>
   </div>
 
@@ -148,12 +195,113 @@
       input.value = value;
     }
 
+    // Function to format currency input for modal (with comma formatting and dash for zero)
+    function formatCurrencyModal(input) {
+      // Store cursor position
+      const cursorPosition = input.selectionStart;
+      
+      // Remove any non-numeric characters except decimal point
+      let value = input.value.replace(/[^\d.]/g, '');
+      
+      // Ensure only one decimal point
+      const parts = value.split('.');
+      if (parts.length > 2) {
+        value = parts[0] + '.' + parts.slice(1).join('');
+      }
+      
+      // Limit to 2 decimal places
+      if (parts.length === 2 && parts[1].length > 2) {
+        value = parts[0] + '.' + parts[1].substring(0, 2);
+      }
+      
+      // Show dash for zero value
+      if (value === '0' || value === '0.0' || value === '0.00' || value === '') {
+        input.value = '-';
+        input.setSelectionRange(1, 1);
+        return;
+      }
+      
+      // Format with commas for display
+      if (parts.length > 0 && parts[0] !== '') {
+        const wholeNumber = parts[0];
+        const formattedWholeNumber = wholeNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        value = formattedWholeNumber + (parts.length > 1 ? '.' + parts[1] : '');
+      }
+      
+      // Only update if value actually changed
+      if (input.value !== value) {
+        const oldValue = input.value;
+        input.value = value;
+        
+        // Calculate new cursor position
+        let newCursorPosition = cursorPosition;
+        
+        // Count commas before cursor in old value
+        const commasBeforeCursorOld = (oldValue.substring(0, cursorPosition).match(/,/g) || []).length;
+        
+        // Count commas before cursor in new value
+        const commasBeforeCursorNew = (value.substring(0, cursorPosition).match(/,/g) || []).length;
+        
+        // Adjust cursor position based on comma difference
+        newCursorPosition += (commasBeforeCursorNew - commasBeforeCursorOld);
+        
+        // Ensure cursor position is within bounds
+        newCursorPosition = Math.min(newCursorPosition, value.length);
+        input.setSelectionRange(newCursorPosition, newCursorPosition);
+      }
+    }
+
+    // Format with commas on blur for modal
+    function formatWithCommasModal(input) {
+      let value = input.value;
+      
+      // Skip if empty or dash
+      if (value === '' || value === '-') {
+        return;
+      }
+      
+      // Remove existing commas and format
+      value = value.replace(/,/g, '');
+      const parts = value.split('.');
+      
+      if (parts.length > 0 && parts[0] !== '') {
+        const wholeNumber = parts[0];
+        const formattedWholeNumber = wholeNumber.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        // Add .00 if no decimal part
+        value = formattedWholeNumber + (parts.length > 1 ? '.' + parts[1] : '.00');
+      }
+      
+      // Only update if we have a valid number
+      if (value !== '' && value !== '-') {
+        input.value = value;
+      }
+    }
+
     // Function to update deposit amount display
     function updateDepositAmount() {
-      const input = document.querySelector('input[type="number"]');
-      const amount = parseFloat(input.value) || 0;
+      const input = document.querySelector('input[type="text"]');
+      if (!input) return;
+      
+      let amount = parseFloat(input.value.replace(/,/g, '')) || 0;
+      
+      // Handle dash value
+      if (input.value === '-') {
+        amount = 0;
+      }
+      
       const depositDisplay = document.getElementById('depositAmount');
-      depositDisplay.textContent = `$${amount.toFixed(2)}`;
+      if (depositDisplay) {
+        if (amount === 0) {
+          depositDisplay.textContent = '-';
+        } else {
+          // Format with commas for display
+          const formattedAmount = amount.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+          depositDisplay.textContent = `$${formattedAmount}`;
+        }
+      }
     }
 
     // Function to handle Save & Exit action
@@ -183,39 +331,93 @@
       document.getElementById('depositModal').classList.add('hidden');
     }
 
-    // Function to update modal deposit amount
+    // Function to update modal deposit amount (only updates display, not main input)
     function updateModalDepositAmount() {
-      const modalInput = document.querySelector('#depositModal input[type="number"]');
-      const mainInput = document.querySelector('input[type="number"]');
-      const amount = parseFloat(modalInput.value) || 0;
-      
-      // Update main input
-      mainInput.value = amount.toFixed(2);
-      
-      // Update display
-      updateDepositAmount();
+      // This function is kept for compatibility but doesn't update the main input
+      // The main input will only be updated when Save is clicked
     }
 
     // Function to save deposit modal
     function saveDepositModal() {
-      const modalInput = document.querySelector('#depositModal input[type="number"]');
-      const mainInput = document.querySelector('input[type="number"]');
-      const amount = parseFloat(modalInput.value) || 0;
+      const modalInput = document.querySelector('#depositModal input[type="text"]');
+      const mainInput = document.querySelector('input[type="text"]');
+      const bankAccountValue = document.getElementById('bankAccountValue').value;
+      let amount = parseFloat(modalInput.value.replace(/,/g, '')) || 0;
       
-      // Update main input
-      mainInput.value = amount.toFixed(2);
+      // Handle dash value
+      if (modalInput.value === '-') {
+        amount = 0;
+      }
+      
+      // Validate required fields
+      if (!bankAccountValue) {
+        alert('Please select a bank account');
+        return;
+      }
+      
+      // Update main input with formatted value
+      if (amount === 0) {
+        mainInput.value = '';
+      } else {
+        const formattedAmount = amount.toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        mainInput.value = formattedAmount;
+      }
       
       // Update display
       updateDepositAmount();
       
+      // Here you would typically save the data to your backend
+      console.log('Saving deposit:', {
+        amount: amount,
+        bankAccount: bankAccountValue,
+        date: document.querySelector('#depositModal input[type="date"]').value
+      });
+      
       // Hide modal
       hideDepositModal();
     }
+
+    // Custom dropdown functions
+    function toggleBankAccountDropdown() {
+      const options = document.getElementById('bankAccountOptions');
+      const dropdown = document.getElementById('bankAccountDropdown');
+      
+      if (options.classList.contains('hidden')) {
+        options.classList.remove('hidden');
+        dropdown.classList.add('ring-2', 'ring-blue-500');
+      } else {
+        options.classList.add('hidden');
+        dropdown.classList.remove('ring-2', 'ring-blue-500');
+      }
+    }
+
+    function selectBankAccount(value, displayText) {
+      document.getElementById('bankAccountValue').value = value;
+      document.getElementById('bankAccountDisplay').textContent = displayText;
+      document.getElementById('bankAccountDisplay').classList.remove('text-gray-500');
+      document.getElementById('bankAccountDisplay').classList.add('text-gray-700');
+      document.getElementById('bankAccountOptions').classList.add('hidden');
+      document.getElementById('bankAccountDropdown').classList.remove('ring-2', 'ring-blue-500');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('bankAccountDropdown');
+      const options = document.getElementById('bankAccountOptions');
+      
+      if (!dropdown.contains(event.target) && !options.contains(event.target)) {
+        options.classList.add('hidden');
+        dropdown.classList.remove('ring-2', 'ring-blue-500');
+      }
+    });
   </script>
 
   <!-- Deposit Modal -->
-  <div id="depositModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-lg p-6 w-[375px] max-h-[80vh] overflow-y-auto">
+  <div id="depositModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4">
+    <div class="bg-white rounded-lg p-4 sm:p-6 w-full max-w-sm sm:max-w-md max-h-[90vh] sm:max-h-[80vh] overflow-y-auto" style="min-width: 0;">
       <!-- Modal Header -->
       <div class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-bold text-gray-900">Deposit to Bank</h2>
@@ -235,25 +437,28 @@
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <span class="text-gray-500 text-sm">$</span>
             </div>
-            <input type="number" step="0.01" min="0" value="0.00" placeholder="Enter additions to petty cash" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" oninput="formatCurrency(this)" onchange="updateModalDepositAmount()">
+            <input type="text" placeholder="Enter additions to petty cash" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" oninput="formatCurrencyModal(this)" onblur="formatWithCommasModal(this)">
           </div>
         </div>
 
         <!-- Bank Account Field -->
-        <div>
+        <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700 mb-2">Bank Account <span class="text-red-500">*</span></label>
-          <div class="relative">
-            <select class="w-full pl-3 pr-10 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none">
-              <option value="">Select a bank account</option>
-              <option value="hsbc-1234" selected>HSBC account (**** 1234)</option>
-              <option value="hsbc-5678">HSBC account (**** 5678)</option>
-              <option value="other">Other bank account</option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-              <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="relative w-full">
+            <button type="button" id="bankAccountDropdown" class="w-full pl-3 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-left flex items-center justify-between" onclick="toggleBankAccountDropdown()">
+              <span id="bankAccountDisplay" class="text-gray-500">Select a bank account</span>
+              <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
+            </button>
+            <div id="bankAccountOptions" class="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg hidden">
+              <div class="py-1">
+                <button type="button" class="w-full px-3 py-2 text-left text-gray-700 hover:bg-blue-500 hover:text-white" onclick="selectBankAccount('hsbc-1234', 'HSBC account (**** 1234)')">HSBC account (**** 1234)</button>
+                <button type="button" class="w-full px-3 py-2 text-left text-gray-700 hover:bg-blue-500 hover:text-white" onclick="selectBankAccount('hsbc-5678', 'HSBC account (**** 5678)')">HSBC account (**** 5678)</button>
+                <button type="button" class="w-full px-3 py-2 text-left text-gray-700 hover:bg-blue-500 hover:text-white" onclick="selectBankAccount('other', 'Other bank account')">Other bank account</button>
+              </div>
             </div>
+            <input type="hidden" id="bankAccountValue" value="">
           </div>
         </div>
 
@@ -266,7 +471,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
             </div>
-            <input type="date" value="2025-04-13" class="w-full pl-10 pr-3 py-3 bg-white border border-gray-300 rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+            <input type="date" value="2025-04-13" class="w-full pl-10 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
           </div>
         </div>
       </div>
