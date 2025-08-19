@@ -311,6 +311,9 @@
 
     // Format currency input
     function formatCurrency(input) {
+      // Store cursor position
+      const cursorPosition = input.selectionStart;
+      
       // Remove any non-numeric characters except decimal point
       let value = input.value.replace(/[^\d.]/g, '');
       
@@ -325,8 +328,14 @@
         value = parts[0] + '.' + parts[1].substring(0, 2);
       }
       
-      // Update the input value
-      input.value = value;
+      // Only update if value actually changed
+      if (input.value !== value) {
+        input.value = value;
+        
+        // Restore cursor position, but adjust if we removed characters
+        const newCursorPosition = Math.min(cursorPosition, value.length);
+        input.setSelectionRange(newCursorPosition, newCursorPosition);
+      }
       
       // Recalculate totals
       calculateTotals();
