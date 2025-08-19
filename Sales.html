@@ -10,23 +10,55 @@
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base styles */
+    .main-container {
+      width: 100%;
+      min-height: 100vh;
+    }
+    
+    /* Responsive container styles */
+    @media (min-width: 640px) and (max-width: 1024px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1024px) and (max-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .main-container {
+        width: 100%;
+      }
+    }
+  </style>
   <script>
     tailwind.config = {
-      theme: { extend: { fontFamily: { inter: ['Inter','ui-sans-serif','system-ui'] } } }
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            inter: ['Inter','ui-sans-serif','system-ui'] 
+          } 
+        } 
+      }
     }
   </script>
 </head>
 <body class="min-h-screen bg-neutral-800 font-inter antialiased">
-  <div class="flex min-h-screen items-center justify-center p-6">
+  <div class="main-container">
     <!-- Phone card -->
-    <div class="relative h-[680px] w-[375px] rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
+    <div class="relative w-full h-screen rounded-md border border-sky-200 bg-white shadow-xl flex flex-col">
       <!-- Header -->
       <div class="bg-blue-800 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
-                                   <button class="text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+        <button class="text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
         <h1 class="text-lg font-semibold">Vine Consulting Limited</h1>
         <button onclick="toggleMenu()" class="text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,187 +67,220 @@
         </button>
       </div>
 
-             <!-- Progress Steps -->
-       <div class="px-6 py-6 flex-shrink-0">
-         <div class="flex items-center justify-between relative">
-           <!-- Progress lines (positioned between circles) -->
-           <div class="absolute top-4 left-4 right-4 flex justify-between">
-             <div class="w-12 h-0.5 bg-gray-300"></div>
-             <div class="w-12 h-0.5 bg-gray-300"></div>
-             <div class="w-12 h-0.5 bg-gray-300"></div>
-             <div class="w-12 h-0.5 bg-gray-300"></div>
-             <div class="w-12 h-0.5 bg-gray-300"></div>
-           </div>
+      <!-- Progress Steps -->
+      <div class="px-4 sm:px-6 py-4 sm:py-6 flex-shrink-0">
+        <div class="flex items-center justify-between relative max-w-2xl mx-auto">
+          <!-- Progress lines (positioned between circles) -->
+          <div class="absolute top-3 sm:top-4 left-0 right-0 flex justify-between px-8 sm:px-10">
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+            <div class="flex-1 h-0.5 bg-gray-300 mx-1"></div>
+          </div>
 
-           <!-- Step 1: Opening -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">1</div>
-             <span class="text-xs mt-3 text-gray-500">Opening</span>
-           </div>
+          <!-- Step 1: Opening -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">1</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Opening</span>
+          </div>
 
-           <!-- Step 2: Sales (Active) -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="relative">
-               <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium leading-none">2</div>
-               <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
-                 <svg class="w-3 h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                   <path d="M10 0l10 20H0L10 0z"/>
-                 </svg>
-               </div>
-             </div>
-             <span class="text-xs mt-3 text-blue-600 font-medium">Sales</span>
-           </div>
+          <!-- Step 2: Sales (Active) -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="relative">
+              <div class="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs sm:text-sm font-medium leading-none">2</div>
+              <div class="absolute -top-1 left-1/2 transform -translate-x-1/2">
+                <svg class="w-2 h-2 sm:w-3 sm:h-3 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 0l10 20H0L10 0z"/>
+                </svg>
+              </div>
+            </div>
+            <span class="text-xs mt-2 sm:mt-3 text-blue-600 font-medium text-center">Sales</span>
+          </div>
 
-           <!-- Step 3: Expenses -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">3</div>
-             <span class="text-xs mt-3 text-gray-500">Expenses</span>
-           </div>
+          <!-- Step 3: Expenses -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">3</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Expenses</span>
+          </div>
 
-           <!-- Step 4: Deposit -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">4</div>
-             <span class="text-xs mt-3 text-gray-500">Deposit</span>
-           </div>
+          <!-- Step 4: Deposit -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">4</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Deposit</span>
+          </div>
 
-           <!-- Step 5: Cash Count -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">5</div>
-             <span class="text-xs mt-3 text-gray-500">Cash Count</span>
-           </div>
+          <!-- Step 5: Cash Count -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">5</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center whitespace-nowrap">Cash Count</span>
+          </div>
 
-           <!-- Step 6: Ending -->
-           <div class="flex flex-col items-center relative z-10">
-             <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-sm font-medium leading-none">6</div>
-             <span class="text-xs mt-3 text-gray-500">Ending</span>
-           </div>
-         </div>
-       </div>
+          <!-- Step 6: Ending -->
+          <div class="flex flex-col items-center relative z-10 flex-1">
+            <div class="w-6 h-6 sm:w-8 sm:h-8 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs sm:text-sm font-medium leading-none">6</div>
+            <span class="text-xs mt-2 sm:mt-3 text-gray-500 text-center">Ending</span>
+          </div>
+        </div>
+      </div>
 
       <!-- Form Content -->
-      <div class="px-6 pb-6 flex-1 overflow-y-auto">
+      <div class="p-6 flex-1 overflow-y-auto">
         <!-- Title -->
         <h2 class="text-xl font-bold text-gray-900 mb-6">Sales Entry</h2>
 
-                 <!-- Electronic Payments Section -->
-         <div class="mb-6">
-                       <h3 class="text-lg font-semibold text-gray-500 mb-4">Electronic Payments</h3>
-           
-           <div class="grid grid-cols-2 gap-4 mb-4">
-                           <!-- Visa -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Visa</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+        <!-- Electronic Payments Section -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-gray-500 mb-4">Electronic Payments</h3>
+          
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <!-- Visa -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Visa</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_visa" name="sales[shop_sales][visa]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
+            </div>
 
-                           <!-- Mastercard -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Mastercard</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            <!-- Mastercard -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Mastercard</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_master" name="sales[shop_sales][master]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
+            </div>
 
-                           <!-- Apple Pay -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Apple Pay</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            <!-- UnionPay -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">UnionPay</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_unionpay" name="sales[shop_sales][unionpay]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
+            </div>
 
-                           <!-- Alipay -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Alipay</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                                     <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            <!-- WeChat Pay -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">WeChat Pay</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_wechat" name="sales[shop_sales][wechat]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
-           </div>
+            </div>
 
-           <!-- Total Electronic -->
-           <div class="flex justify-between items-center py-2 border-t border-gray-200">
-             <span class="text-sm font-medium text-gray-700">Total Electronic:</span>
-             <span class="text-sm font-medium text-gray-700" id="totalElectronic">$12.00</span>
-           </div>
-         </div>
-
-                 <!-- Delivery Sales Section -->
-         <div class="mb-6">
-                       <h3 class="text-lg font-semibold text-gray-500 mb-4">Delivery Sales</h3>
-           
-           <div class="grid grid-cols-2 gap-4 mb-4">
-                           <!-- Food Panda -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Food Panda</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            <!-- Amex -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Amex</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_amex" name="sales[shop_sales][amex]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
+            </div>
 
-                           <!-- Deliveroo -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Deliveroo</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            <!-- Octopus -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Octopus</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_octopus" name="sales[shop_sales][octopus]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
+            </div>
+          </div>
 
-                           <!-- Keeta -->
-              <div>
-                                 <label class="block text-sm font-medium text-gray-500 mb-2">Keeta</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <span class="text-gray-500 text-sm">$</span>
-                  </div>
-                  <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+          <!-- Total Shop Sales -->
+          <div class="flex justify-between items-center py-2">
+            <span class="text-sm font-medium text-gray-700">Total Shop Sales:</span>
+            <span class="text-sm font-medium text-gray-700" id="totalShopSales">$12.00</span>
+          </div>
+        </div>
+
+        <!-- Delivery Sales Section -->
+        <div class="mb-6">
+          <h3 class="text-lg font-semibold text-gray-500 mb-4">Delivery Sales</h3>
+          
+          <div class="grid grid-cols-2 gap-4 mb-4">
+            <!-- Food Panda -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Food Panda</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
                 </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="delivery_sales_foodpanda" name="sales[delivery_sales][foodpanda]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
               </div>
-           </div>
+            </div>
 
-           <!-- Total Delivery -->
-           <div class="flex justify-between items-center py-2 border-t border-gray-200">
-             <span class="text-sm font-medium text-gray-700">Total Delivery:</span>
-             <span class="text-sm font-medium text-gray-700" id="totalDelivery">$0.00</span>
-           </div>
-         </div>
+            <!-- Deliveroo -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Deliveroo</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
+                </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="delivery_sales_deliveroo" name="sales[delivery_sales][deliveroo]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+              </div>
+            </div>
+
+            <!-- Keeta -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">Keeta</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
+                </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="delivery_sales_keeta" name="sales[delivery_sales][keeta]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+              </div>
+            </div>
+
+            <!-- OpenRice -->
+            <div>
+              <label class="block text-sm font-medium text-gray-500 mb-2">OpenRice</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  <span class="text-gray-500 text-sm">$</span>
+                </div>
+                <input type="number" step="0.01" min="0" placeholder="0.00" id="delivery_sales_openrice" name="sales[delivery_sales][openrice]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Delivery Sales -->
+          <div class="flex justify-between items-center py-2">
+            <span class="text-sm font-medium text-gray-700">Total Delivery Sales:</span>
+            <span class="text-sm font-medium text-gray-700" id="totalDeliverySales">$0.00</span>
+          </div>
+        </div>
 
         <!-- Cash Sales Section -->
         <div class="mb-6">
-                     <h3 class="text-lg font-semibold text-gray-500 mb-4">Cash Sales</h3>
+          <h3 class="text-lg font-semibold text-gray-500 mb-4">Cash Sales</h3>
           
-                     <div class="mb-3">
-             <div class="relative">
-               <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                 <span class="text-gray-500 text-sm">$</span>
-               </div>
-               <input type="number" step="0.01" min="0" placeholder="0.00" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
-             </div>
-           </div>
+          <div class="mb-3">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <span class="text-gray-500 text-sm">$</span>
+              </div>
+              <input type="number" step="0.01" min="0" placeholder="0.00" id="shop_sales_cash" name="sales[shop_sales][cash]" class="w-full pl-8 pr-3 py-3 bg-white border border-gray-300 rounded-2xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" onchange="calculateTotals()" oninput="formatCurrency(this)">
+            </div>
+          </div>
         </div>
 
         <!-- Total Sales -->
-        <div class="flex justify-between items-center py-3 border-t border-gray-200 mb-6">
+        <div class="flex justify-between items-center py-3 mb-6">
           <span class="text-sm font-medium text-gray-700">Total Sales:</span>
           <span class="text-sm font-medium text-gray-700" id="totalSales">$12.00</span>
         </div>
@@ -272,31 +337,44 @@
       // Get all input values using more specific selectors
       const inputs = document.querySelectorAll('input[type="number"]');
       
-      let visa = 0, mastercard = 0, applePay = 0, alipay = 0;
-      let foodPanda = 0, deliveroo = 0, keeta = 0;
+      // Initialize variables for electronic payments
+      let visa = 0, mastercard = 0, unionPay = 0, weChatPay = 0, amex = 0, octopus = 0;
+      
+      // Initialize variables for delivery sales
+      let foodPanda = 0, deliveroo = 0, keeta = 0, openrice = 0;
+      
+      // Initialize variable for cash sales
       let cashSales = 0;
       
-      // Map inputs to variables based on their position or add data attributes
-      if (inputs.length >= 7) {
+      // Map inputs to variables based on their position
+      if (inputs.length >= 10) {
+        // Electronic payments (positions 0-5)
         visa = parseFloat(inputs[0].value) || 0;
         mastercard = parseFloat(inputs[1].value) || 0;
-        applePay = parseFloat(inputs[2].value) || 0;
-        alipay = parseFloat(inputs[3].value) || 0;
-        foodPanda = parseFloat(inputs[4].value) || 0;
-        deliveroo = parseFloat(inputs[5].value) || 0;
-        keeta = parseFloat(inputs[6].value) || 0;
-        cashSales = parseFloat(inputs[7].value) || 0;
+        unionPay = parseFloat(inputs[2].value) || 0;
+        weChatPay = parseFloat(inputs[3].value) || 0;
+        amex = parseFloat(inputs[4].value) || 0;
+        octopus = parseFloat(inputs[5].value) || 0;
+        
+        // Delivery sales (positions 6-9)
+        foodPanda = parseFloat(inputs[6].value) || 0;
+        deliveroo = parseFloat(inputs[7].value) || 0;
+        keeta = parseFloat(inputs[8].value) || 0;
+        openrice = parseFloat(inputs[9].value) || 0;
+        
+        // Cash sales (position 10)
+        cashSales = parseFloat(inputs[10].value) || 0;
       }
 
       // Calculate totals
-      const totalElectronic = visa + mastercard + applePay + alipay;
-      const totalDelivery = foodPanda + deliveroo + keeta;
-      const totalSales = totalElectronic + totalDelivery + cashSales;
+      const totalShopSales = visa + mastercard + unionPay + weChatPay + amex + octopus + cashSales;
+      const totalDeliverySales = foodPanda + deliveroo + keeta + openrice;
+      const totalSales = totalShopSales + totalDeliverySales;
 
-      // Update display
-      document.getElementById('totalElectronic').textContent = `$${totalElectronic.toFixed(2)}`;
-      document.getElementById('totalDelivery').textContent = `$${totalDelivery.toFixed(2)}`;
-      document.getElementById('totalSales').textContent = `$${totalSales.toFixed(2)}`;
+      // Update display with comma formatting
+      document.getElementById('totalShopSales').textContent = `$${totalShopSales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('totalDeliverySales').textContent = `$${totalDeliverySales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('totalSales').textContent = `$${totalSales.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
     }
 
     // Initialize totals on page load
