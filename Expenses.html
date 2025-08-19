@@ -362,7 +362,16 @@
          const grossTotal = document.getElementById('grossTotal');
          
          if (grossTotal) {
-           grossTotal.textContent = `$${total.toFixed(2)}`;
+           // Format total with commas and handle zero value
+           if (total === 0) {
+             grossTotal.textContent = '-';
+           } else {
+             const formattedTotal = total.toLocaleString('en-US', {
+               minimumFractionDigits: 2,
+               maximumFractionDigits: 2
+             });
+             grossTotal.textContent = `$${formattedTotal}`;
+           }
          }
        }
 
