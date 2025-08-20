@@ -179,11 +179,7 @@
             </div>
           </div>
 
-          <!-- Total Notes -->
-          <div class="flex justify-between items-center py-2">
-            <span class="text-sm font-medium text-gray-700">Total Notes:</span>
-            <span class="text-sm font-medium text-gray-700" id="totalNotes">$0.00</span>
-          </div>
+
         </div>
 
         <!-- Coins Section -->
@@ -258,9 +254,9 @@
             </div>
           </div>
 
-          <!-- Total Coins -->
+          <!-- Total Cash Till Balance -->
           <div class="flex justify-between items-center py-2">
-            <span class="text-sm font-medium text-gray-700">Total Coins:</span>
+            <span class="text-sm font-medium text-gray-700">Total Cash Till Balance:</span>
             <span class="text-sm font-medium text-gray-700" id="totalCoins">$0.00</span>
           </div>
         </div>
@@ -362,29 +358,23 @@
          }
        });
 
-       // Update individual totals with comma formatting
-       if (totalNotes === 0) {
-         document.getElementById('totalNotes').textContent = '-';
-       } else {
-         const formattedTotalNotes = totalNotes.toLocaleString('en-US', {
-           minimumFractionDigits: 2,
-           maximumFractionDigits: 2
-         });
-         document.getElementById('totalNotes').textContent = `$${formattedTotalNotes}`;
-       }
+       // Calculate total cash till balance (notes + coins)
+       const totalCashTillBalance = totalNotes + totalCoins;
 
-       if (totalCoins === 0) {
+
+
+       if (totalCashTillBalance === 0) {
          document.getElementById('totalCoins').textContent = '-';
        } else {
-         const formattedTotalCoins = totalCoins.toLocaleString('en-US', {
+         const formattedTotalCashTillBalance = totalCashTillBalance.toLocaleString('en-US', {
            minimumFractionDigits: 2,
            maximumFractionDigits: 2
          });
-         document.getElementById('totalCoins').textContent = `$${formattedTotalCoins}`;
+         document.getElementById('totalCoins').textContent = `$${formattedTotalCashTillBalance}`;
        }
 
        // Calculate total counted cash
-       const countedTotal = totalNotes + totalCoins;
+       const countedTotal = totalCashTillBalance;
        
        // Update Cash Count display with comma formatting
        if (countedTotal === 0) {

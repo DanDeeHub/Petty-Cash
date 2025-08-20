@@ -98,7 +98,7 @@
         <h2 class="text-xl font-bold text-gray-900 mb-6">Report Summary</h2>
 
         <!-- Total Sales Card -->
-        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+        <div class="bg-white rounded-lg p-4 mb-4">
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
@@ -173,7 +173,7 @@
         </div>
 
         <!-- Total Expenses Card -->
-        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+        <div class="bg-white rounded-lg p-4 mb-4">
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
@@ -214,7 +214,7 @@
         </div>
 
         <!-- Cash Balance Card -->
-        <div class="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+        <div class="bg-white rounded-lg p-4 mb-4">
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <div class="w-8 h-8 bg-[#edf0ee] rounded-full flex items-center justify-center">
@@ -299,13 +299,15 @@
           </div>
         </div>
 
-        <!-- Finish Button -->
-        <button onclick="finishReport()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-          Finish Daily Report
-        </button>
+                 <!-- Finish Button -->
+         <div class="sticky bottom-0 bg-white pt-4 pb-6">
+           <button onclick="finishReport()" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md font-medium flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors">
+             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+             </svg>
+             Finish Daily Report
+           </button>
+         </div>
       </div>
     </div>
   </div>
